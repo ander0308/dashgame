@@ -67,6 +67,7 @@ body {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  padding: 8px;
 }
 
 .content .container .cards .card {
@@ -77,28 +78,43 @@ body {
   box-sizing: border-box;
   border-radius: 16px;
   margin-left: 16px;
+  cursor: pointer;
 }
 
-.content .container .card-active {
+.content .container .cards .card-active {
   position: relative;
   width: 430px;
   height: 525px;
   /* border: 1px solid rgba(169, 177, 185, 0.3); preciso ajusar a borda, pois a borda atual está na imagem */
   border-radius: 16px;
+  cursor: pointer;
 }
 
-.content .container .card p {
+.content .container .cards .card-active img,
+.content .container .cards .card img {
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+  display: block;
+}
+
+.content .container .cards .card-active:hover img,
+.content .container .cards .card:hover img {
+  transform: scale(1.02);
+  filter: saturate(1.7);
+}
+
+.content .container .cards .card p {
   position: absolute;
   top: 100px;
   left: 22px;
   font-weight: bold;
   font-size: 72px;
   align-items: center;
-  color: rgba(248, 249, 250, 0.8);
+  color: rgba(248, 249, 250, 0.6);
 }
 
-.content .container .card-active span,
-.content .container .card span {
+.content .container .cards .card-active span,
+.content .container .cards .card span {
   position: absolute;
   left: 20px;
   bottom: 73px;
@@ -106,11 +122,12 @@ body {
   font-size: 24px;
   line-height: 33px;
   letter-spacing: -0.02em;
-  color: #f8f9fa;
+  color: rgba(248, 249, 250, 0.6);
+  transition: color 0.3s;
 }
 
-.content .container .card-active h4,
-.content .container .card h4 {
+.content .container .cards .card-active h4,
+.content .container .cards .card h4 {
   position: absolute;
   left: 20px;
   bottom: 30px;
@@ -118,8 +135,19 @@ body {
   font-size: 28px;
   line-height: 38px;
   letter-spacing: -0.03em;
+  color: rgba(248, 249, 250, 0.6);
+  transition: color 0.3s;
 }
 
+.content .container .cards .card-active:hover h4,
+.content .container .cards .card:hover h4 {
+  color: rgba(248, 249, 250);
+}
+
+.content .container .cards .card-active:hover span,
+.content .container .cards .card:hover span {
+  color: rgba(248, 249, 250);
+}
 footer {
   width: 100%;
   position: absolute;
